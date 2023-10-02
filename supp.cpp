@@ -2,6 +2,7 @@
 #include <math.h>
 #include <cassert>
 #include "thread"
+#include "mutex"
 #include "chrono"
 
 #include "supp.hpp"
@@ -179,4 +180,24 @@ void MyClass::doSmth2(int a)
     std::cout << "a :\t" << a << "\n"; 
     std::this_thread::sleep_for(std::chrono::milliseconds(2000));
     std::cout << "\t" << "END doSmth2" << "\n";
+}
+
+std::mutex mtx;
+
+void print(char ch)
+{
+    mtx.lock();
+
+    for (int i = 0; i < 5; i++)
+    {
+        for (int j = 0; j < 5; j++)
+        {
+            std::cout << ch;
+            std::this_thread::sleep_for(std::chrono::milliseconds(20));
+        }
+        std::cout << "\n";
+    }
+    std::cout << "\n";
+
+    mtx.unlock();
 }

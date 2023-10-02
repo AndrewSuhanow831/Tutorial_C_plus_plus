@@ -16,6 +16,7 @@
 #include <list>
 #include <map>
 #include "thread"
+#include "mutex"
 #include "chrono"
 
 #include "supp.hpp"
@@ -62,21 +63,30 @@ int main()
     // std::thread someThread([&someVar](){someVar = doSmth();});
     // someThread.detach();
 
-    MyClass myClass;
-    int someVar = 0;
-    std::thread someThread([&](){someVar = myClass.sum(2, 3);});
+    // MyClass myClass;
+    // int someVar = 0;
+    // std::thread someThread([&](){someVar = myClass.sum(2, 3);});
     // std::thread someThread(&MyClass::doSmth, myClass);
     // std::thread someThread(&MyClass::doSmth2, myClass, 5);
 
-    for (int i = 0; i < 10; i++)
-    {
-        std::cout << std::this_thread::get_id() << "\t" << "main(int argc ,*char argv[])"  << i << std::endl;
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));
-    }
+    // for (int i = 0; i < 10; i++)
+    // {
+        // std::cout << std::this_thread::get_id() << "\t" << "main(int argc ,*char argv[])"  << i << std::endl;
+        // std::this_thread::sleep_for(std::chrono::milliseconds(500));
+    // }
 
-    someThread.join();
+    // someThread.join();
 
-    std::cout << "someVar :\t" << someVar << std::endl;
+    // std::cout << "someVar :\t" << someVar << std::endl;
+
+    std::thread someThread1(print, '*');
+    std::thread someThread2(print, '#');
+
+    someThread1.join();
+    someThread2.join();
+
+    // print('*');
+    // print('#');
 
 	return 0;
 }

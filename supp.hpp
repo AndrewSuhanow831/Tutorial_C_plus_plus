@@ -6,6 +6,7 @@
 #include <stack>
 #include <queue>
 #include <math.h>
+#include "mutex"
 
 class Item // Узел дерева. Может содержать указатели на несколько дочерних узлов
 {
@@ -161,3 +162,7 @@ public:
     int sum(int a, int b);
 
 };
+
+void print(char ch);
+
+// std::mutex mtx;
