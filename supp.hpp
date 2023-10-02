@@ -152,3 +152,12 @@ constexpr int someFunction(const int &x, const int &y)
 void merge(std::vector<double> &A, const int p, const int q, const int r);
 
 int doSmth();
+
+class MyClass
+{
+public:
+    void doSmth();
+    void doSmth2(int a);
+    int sum(int a, int b);
+
+};

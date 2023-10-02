@@ -58,14 +58,15 @@ int main()
 
     // std::thread someThread(doSmth, 2, 3);
     // std::thread someThread(doSmth, std::ref(a), std::ref(b));
-    int someVar = 0;
-    std::thread someThread([&someVar](){someVar = doSmth();});
+    // int someVar = 0;
+    // std::thread someThread([&someVar](){someVar = doSmth();});
     // someThread.detach();
 
-    // doSmth(2, 3);
-    
-    std::cout << "a : " << a << "\n";
-    std::cout << "b : " << b << "\n";
+    MyClass myClass;
+    int someVar = 0;
+    std::thread someThread([&](){someVar = myClass.sum(2, 3);});
+    // std::thread someThread(&MyClass::doSmth, myClass);
+    // std::thread someThread(&MyClass::doSmth2, myClass, 5);
 
     for (int i = 0; i < 10; i++)
     {
@@ -75,7 +76,7 @@ int main()
 
     someThread.join();
 
-    std::cout << "someVar : " << someVar << "\n";
-    
+    std::cout << "someVar :\t" << someVar << std::endl;
+
 	return 0;
 }

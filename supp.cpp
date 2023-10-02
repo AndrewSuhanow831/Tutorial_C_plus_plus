@@ -155,13 +155,28 @@ void merge(std::vector<double> &A, const int p, const int q, const int r)
     }
 }
 
-int doSmth()
+int MyClass::sum(int a, int b)
 {
     std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-    std::cout << "\t" << "START doSmth" << "\n";
+    std::cout << "\t" << std::this_thread::get_id() << "\t" << "START sum" << "\n";
     std::this_thread::sleep_for(std::chrono::milliseconds(2000));
-    // std::cout << "a + b\t" << a + b << "\n";
+    std::cout << "\t" << "END sum" << "\n";
+    return a + b;
+}
+
+void MyClass::doSmth()
+{
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+    std::cout << "\t" << std::this_thread::get_id() << "\t" << "START doSmth" << "\n";
     std::this_thread::sleep_for(std::chrono::milliseconds(2000));
     std::cout << "\t" << "END doSmth" << "\n";
-    return 42;
+}
+
+void MyClass::doSmth2(int a)
+{
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+    std::cout << "\t" << std::this_thread::get_id() << "\t" << "START doSmth2" << "\n";
+    std::cout << "a :\t" << a << "\n"; 
+    std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+    std::cout << "\t" << "END doSmth2" << "\n";
 }
