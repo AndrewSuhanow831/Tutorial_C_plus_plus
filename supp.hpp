@@ -6,7 +6,6 @@
 #include <stack>
 #include <queue>
 #include <math.h>
-#include "mutex"
 
 class Item // Узел дерева. Может содержать указатели на несколько дочерних узлов
 {
@@ -165,4 +164,51 @@ public:
 
 void print(char ch);
 
-// std::mutex mtx;
+std::size_t find_range_m(const std::vector<int> &vec, int number);
+
+void Func (char *s1, const char *s2);
+
+int Test(void);
+
+class Base 
+{
+    virtual void method1 () {std::cout << 100 << "\n";}
+ };
+class Derived: public Base 
+{
+    virtual void method1 () {std::cout << 200 << "\n";}
+};
+
+void otherStrcpy(std::string &newString, const std::string &source);
+// void otherStrcpy(char *str1, const char *str2);
+
+void sortTest (std::vector<int> vector);
+
+class AbstractClass
+{
+    
+private:
+    int m_someVar = 0;
+
+public:
+    AbstractClass() = default;
+    AbstractClass(int someValue);
+    virtual double getP() = 0;
+    virtual double getS() = 0;
+};
+
+class HeirAbstractClass : public AbstractClass
+{
+public:
+    HeirAbstractClass() = default;
+    HeirAbstractClass(int someValue);
+    virtual double getP(){return 0;};
+    virtual double getS(){return 0;};
+};
+
+enum class enumClass
+{
+    a,
+    b,
+    c
+};

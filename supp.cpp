@@ -201,3 +201,88 @@ void print(char ch)
 
     mtx.unlock();
 }
+
+std::size_t find_range_m(const std::vector<int> &vec, int number)
+{
+    std::size_t result = 0;
+    std::size_t intermediateResult = 0;
+    for (int i = 0; i < vec.size(); i++)
+    {
+        if (vec.at(i) == number)
+        {
+            ++intermediateResult;
+        }
+        else
+        {
+            intermediateResult = 0;
+        }
+            if (result < intermediateResult)
+            {
+                result = intermediateResult;
+            }
+    }
+    return result;
+}
+
+void Func (char *s1, const char *s2)
+{
+   while (*s1++ = *s2++);
+   {    
+        std::cout << s1 << "\n";
+        std::cout << *s1 << "\n";
+        std::cout << s2 << "\n";
+        std::cout << *s2 << "\n";
+        return;
+   }
+}
+
+int Test(void)
+{
+    int x, *p;
+    x = 10;
+    p = &x;
+    return *p;
+}
+
+void sortTest (std::vector<int> vector)
+{
+    for (int i = 0; i < vector.size(); i++)
+    {
+        for (int j = i + 1; j < vector.size() - 1; j++)
+        {
+            if (vector[i] > vector[j])
+            {
+                vector[i] += vector[j];
+                vector[j] = vector[i] - vector[j];
+                vector[i] -= vector[j]; 
+            }
+        }
+    }
+    for (int i = 0; i < vector.size(); i++)
+    {
+        std::cout << vector[i] << "\n";
+    }
+}
+
+void otherStrcpy(std::string &newString, const std::string &source)
+{
+    int sourceSize = source.size();
+    if (sourceSize > newString.size())
+    {
+        newString.resize(sourceSize);
+    }
+    for (int i = 0; i < sourceSize; ++i)
+    {
+        newString[i] = source.at(i);
+    }
+}
+
+AbstractClass::AbstractClass(int someValue)
+    : m_someVar(someValue)
+{
+}
+
+HeirAbstractClass::HeirAbstractClass(int someValue)
+    : AbstractClass(someValue) 
+{
+}

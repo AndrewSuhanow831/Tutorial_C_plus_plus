@@ -54,8 +54,8 @@ int main()
     //     std::cout << A[i] << " ";
     // }
 
-    int a = 1;
-    int b = 2;
+    // int a = 1;
+    // int b = 2;
 
     // std::thread someThread(doSmth, 2, 3);
     // std::thread someThread(doSmth, std::ref(a), std::ref(b));
@@ -79,14 +79,74 @@ int main()
 
     // std::cout << "someVar :\t" << someVar << std::endl;
 
-    std::thread someThread1(print, '*');
-    std::thread someThread2(print, '#');
+    // std::thread someThread1(print, '*');
+    // std::thread someThread2(print, '#');
 
-    someThread1.join();
-    someThread2.join();
+    // someThread1.join();
+    // someThread2.join();
 
     // print('*');
     // print('#');
+
+    // int searchableNumber = 3;
+    // std::cout << find_range_m(vec, searchableNumber) << "\n";
+
+    char *ch1 = new char ['a','a'];
+    // char ch = 'fsfsfs';
+    char *ch2 = new char ('b');
+    // Func(ch1, ch2);
+    std::string str1 = "";
+    std::string str2 = "abba";
+    // std::cout << "str 1\t" << str1 << "\n";
+    otherStrcpy(str1, str2);
+    // std::cout << "str 1\t" << str1 << "\n";
+
+    // std::cout << Test() << "\n";
+
+    Base *ptr = new Base();
+    // ptr->method1();
+    ptr = new Derived();
+    // ptr->method1();
+
+    Derived *ptr2 = new Derived();
+
+    std::vector<int> vector{3, 1, 1, 9, 5, 11};
+    // sortTest(vector);
+
+    std::array<bool, 100> doorsArray;
+    for (int i = 1; i <= doorsArray.size(); i++)
+    {
+        doorsArray[i] = false;
+    }
+
+    for (int i = 1; i <= doorsArray.size(); i++)
+    {
+        for (int j = 1; j <= doorsArray.size(); j++)
+        {
+            if ((j % i) == 0)
+            {
+                doorsArray[i] = !doorsArray[i];
+            }
+        }
+    }
+    // std::cout << "doorsArray[i] == true:" << "\n";
+    for (int i = 1; i <= doorsArray.size(); i++)
+    {
+        if (doorsArray[i] == true)
+        {
+            // std::cout << i << "\n"; 
+        }
+    }
+
+    unsigned int someVar = 0x01;
+    someVar <<= 1;
+    someVar <<= 1;
+    std::cout << "someVar:\t" << someVar << "\n";
+
+    AbstractClass *p = new HeirAbstractClass;
+    // std::cout << p->getS() << "\n";
+
+    int &&a = 2;
 
 	return 0;
 }
